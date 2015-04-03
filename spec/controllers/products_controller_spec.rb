@@ -16,15 +16,17 @@ describe ProductsController do
   end
 
   describe 'GET #show' do
+    before(:each) do
+      @product = create(:product)
+    end
+
     it 'assigns the requested product as @product' do
-      product = create(:product)
-      get :show, id: product
-      expect(assigns(:product)).to eq(product)
+      get :show, id: @product
+      expect(assigns(:product)).to eq(@product)
     end
 
     it 'render the :show template' do
-      product = create(:product)
-      get :show, id: product
+      get :show, id: @product
       expect(response).to render_template(:show)
     end
   end
@@ -42,15 +44,17 @@ describe ProductsController do
   end
 
   describe 'GET #edit' do
+    before(:each) do
+      @product = create(:product)
+    end
+
     it 'assigns the requested product as @product' do
-      product = create(:product)
-      get :edit, id: product
-      expect(assigns(:product)).to eq(product)
+      get :edit, id: @product
+      expect(assigns(:product)).to eq(@product)
     end
 
     it 'render the :edit template' do
-      product = create(:product)
-      get :edit, id: product
+      get :edit, id: @product
       expect(response).to render_template(:edit)
     end
   end
