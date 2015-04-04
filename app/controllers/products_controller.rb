@@ -15,6 +15,10 @@ class ProductsController < ApplicationController
   # GET /products/new
   def new
     @product = Product.new
+    # respond_to do |format|
+    #   format.html
+    #   format.js
+    # end
   end
 
   # GET /products/1/edit
@@ -30,9 +34,11 @@ class ProductsController < ApplicationController
       if @product.save
         format.html { redirect_to @product, notice: 'Product was successfully created.' }
         format.json { render :show, status: :created, location: @product }
+        format.js
       else
         format.html { render :new }
         format.json { render json: @product.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end
@@ -44,9 +50,11 @@ class ProductsController < ApplicationController
       if @product.update(product_params)
         format.html { redirect_to @product, notice: 'Product was successfully updated.' }
         format.json { render :show, status: :ok, location: @product }
+        format.js
       else
         format.html { render :edit }
         format.json { render json: @product.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end
@@ -58,6 +66,7 @@ class ProductsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to products_url, notice: 'Product was successfully destroyed.' }
       format.json { head :no_content }
+      format.js
     end
   end
 
