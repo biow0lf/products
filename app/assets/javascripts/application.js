@@ -14,5 +14,8 @@
 //= require jquery_ujs
 //= require magnific-popup
 //= require popup
-// require turbolinks
 // require_tree .
+
+$(window).bind("popstate", function(){
+    window.location.href = location.href;
+});

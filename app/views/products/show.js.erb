@@ -1,1 +1,5 @@
 $('#popupit').html('<%= j render(@product) %>');
+
+if (history && history.pushState) {
+    history.pushState(null, '', '<%= url_for(controller: 'products', action: 'show', id: @product) %>');
+}
