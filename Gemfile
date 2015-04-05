@@ -27,6 +27,11 @@ group :development, :test do
 end
 
 group :test do
+  gem 'capybara'
+  gem 'selenium-webdriver'
+  gem 'database_cleaner'
+  gem 'launchy'
   gem 'shoulda-matchers'
   gem 'simplecov', require: false
+  gem 'codeclimate-test-reporter'
 end
