@@ -1,0 +1,11 @@
+<% if @product.errors.empty? %>
+  $('#popupit').html('<%= j render(@product) %>');
+  if (history && history.pushState) {
+      history.pushState(null, '', '<%= url_for(controller: 'products', action: 'show', id: @product) %>');
+  }
+<% else %>
+  $('#popupit').html('<h1>New Product</h1><%= j render('form') %><%= link_to 'Back', products_path %>');
+  if (history && history.pushState) {
+      history.pushState(null, '', '<%= url_for(controller: 'products', action: 'new') %>');
+  }
+<% end %>

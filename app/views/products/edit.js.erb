@@ -1,0 +1,5 @@
+$('#popupit').html('<h1>Editing Product</h1><%= j render('form') %><%= link_to 'Show', @product, remote: true %> | <%= link_to 'Back', products_path %>');
+
+if (history && history.pushState) {
+    history.pushState(null, '', '<%= url_for(controller: 'products', action: 'edit', id: @product) %>');
+}

@@ -12,5 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
-//= require_tree .
+//= require magnific-popup
+//= require popup
+// require_tree .
+
+$(window).bind("popstate", function(){
+    window.location.href = location.href;
+});
